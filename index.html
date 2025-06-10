@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cena y algo más-sitio oficial</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+
+
+    h1, h2, p {
+      text-align: center;
+    }
+
+    .menu-img {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      margin: 40px 0;
+      background-color: #ccc;
+    }
+
+    .productos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .producto {
+      background-color: white;
+      text-align: center;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+      width: 220px;
+    }
+
+    .producto:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .producto img {
+      width: 200px;
+      height: 200px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 6px;
+    }
+
+    footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    nav {
+      background-color: #fff;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #d94f30;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    nav img {
+      border-radius: 50%;
+    }    
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Menú de navegación -->
+  <nav>
+    <img src="imagenes/alita.png" alt="logo" width="60" height="60">
+    <a href="index.html">Inicio</a>
+    <a href="quienessomos.html">Quienes somos</a>
+    <a href="Nuestroservicio.html">Nuestros servicios</a>
+    <a href="contactos.html">Contacto</a>
+  </nav>
+
+  <!-- Contenido -->
+  <section class="menu">
+    <h1>Menú de cena y algo más</h1>
+    <img class="menu-img" src="imagenes/Capture.PNG" alt="menu">
+    <p>Nota: pueden agotarse los productos</p>
+  </section>
+
+  <hr>
+
+  <h2>Nuestros productos</h2>
+  <section class="productos">
+    <div class="producto">
+      <img src="imagenes/hamburgesa.jpeg" alt="hamburguesa">
+      <p>Hamburguesas $45</p>
+    </div>
+    <div class="producto">
+      <img src="imagenes/hotdog.jpeg" alt="hot dog">
+      <p>Hot dogs $45</p>
+    </div>
+    <div class="producto">
+      <img src="imagenes/Wafles.jpeg" alt="waffles">
+      <p>Waffles $45</p>
+    </div>
+    <div class="producto">
+      <img src="imagenes/alitas.jpeg" alt="alitas">
+      <p>Alitas $45</p>
+    </div>
+    <div class="producto">
+      <img src="imagenes/salchipapas.jpeg" alt="salchipapas">
+      <p>Salchipapas $45</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 cena y algo mas. Todos los derechos reservados.
+  </footer>
+
+</body>
+<script>
+  if (window.matchMedia('(min-width: 768px)').matches) {
+    document.addEventListener('wheel', function(e) {
+      if (e.ctrlKey) e.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && (e.key === '-' || e.key === '+' || e.key === '=')) {
+        e.preventDefault();
+      }
+    });
+  }
+</script>
+
+</html>
+

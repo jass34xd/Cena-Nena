@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contactos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+    nav {
+      background-color: #fff;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #d94f30;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    nav img {
+      border-radius: 50%;
+    }    
+    .Contacto {
+        text-align: center;
+        font-size: 2.5em;
+        margin-top: 40px;
+        color: #d94f30;
+    }
+    .hr {
+      width: 80px;
+      height: 3px;
+      background-color: #000;
+      border: none;
+      margin: 10px auto 30px;
+      border-radius: 2px;
+    }
+    .ff1 {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Esto hace que el contenido crezca y empuje el footer */
+    }
+    footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    </style>
+</head>
+<body>
+  <!-- Menú de navegación -->
+  <nav>
+    <img src="imagenes/alita.png" alt="logo" width="60" height="60">
+    <a href="index.html">Inicio</a>
+    <a href="quienessomos.html">Quienes somos</a>
+    <a href="Nuestroservicio.html">Nuestros servicios</a>
+    <a href="contactos.html">Contacto</a>
+  </nav>    
+  <h1 class="Contacto">
+      Contacto
+  </h1>
+  <hr class="hr" />
+<div class="ff1">
+  <p class="p">Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos. Estamos aquí para ayudarte.</p>
+
+  <p class="p">📧 Email: <a href="mailto:cenaalgomas@gmail.com">cenaalgomas@gmail.com</a></p>
+
+  <p class="p">📞 Teléfono: <a href="tel:+52988888888">+52988888888</a></p>
+
+  <p class="p">📩 WhatsApp: <a href="https://wa.me/555555555">+555555555</a></p>
+  </div>
+  <footer class="footer">
+    © 2025 Cena y Algo Más. Todos los derechos reservados.
+  </footer>
+</body>
+<script>
+  if (window.matchMedia('(min-width: 768px)').matches) {
+    document.addEventListener('wheel', function(e) {
+      if (e.ctrlKey) e.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && (e.key === '-' || e.key === '+' || e.key === '=')) {
+        e.preventDefault();
+      }
+    });
+  }
+</script>
+
+</html>

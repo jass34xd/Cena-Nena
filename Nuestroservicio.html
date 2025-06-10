@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nuestros Servicios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf7;
+      color: #333;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-top: 40px;
+      color: #d94f30;
+    }
+
+    hr {
+      width: 80px;
+      height: 4px;
+      background-color: #d94f30;
+      border: none;
+      margin: 10px auto 30px;
+      border-radius: 3px;
+    }
+
+    .contenedor {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        flex: 1;
+    }
+
+    p, li {
+      font-size: 1.1em;
+      line-height: 1.8;
+      text-align: justify;
+      color: #444;
+    }
+
+    ul {
+      margin-top: 10px;
+      margin-bottom: 25px;
+      padding-left: 20px;
+    }
+
+    li::marker {
+      color: #d94f30;
+    }
+
+    footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.95em;
+    }
+
+    nav {
+      background-color: #fff;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #d94f30;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    nav img {
+      border-radius: 50%;
+    }
+
+
+footer {
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <img src="imagenes/alita.png" alt="logo" width="60" height="60" />
+    <a href="index.html">Inicio</a>
+    <a href="quienessomos.html">Quiénes somos</a>
+    <a href="Nuestroservicio.html">Nuestros servicios</a>
+    <a href="contactos.html">Contacto</a>
+  </nav>
+
+  <div class="contenedor">
+    <h1>Nuestros servicios</h1>
+    <hr />
+
+    <p>En <strong>Cena y Algo Más</strong>, nos encanta que cada cliente se sienta como en casa. Nuestros servicios están pensados para quienes disfrutan de lo casero, lo auténtico y lo sabroso.</p>
+
+    <ul>
+      <li><strong>Comida para llevar y consumir en sitio</strong> — hamburguesas, alitas, hot dogs, waffles y más.</li>
+      <li><strong>Entregas a domicilio</strong> — solo dentro de un rango cercano para asegurar la calidad.</li>
+      <li><strong>Atención a eventos pequeños</strong> — solo en zonas cercanas, bajo reserva.</li>
+    </ul>
+
+    <p><strong>📅 Días activos:</strong> viernes, sábado y domingo.</p>
+    <p><strong>🕖 Horario:</strong> de 7:00 p.m. a 12:00 a.m.</p>
+
+    <p><strong>📲 Pedidos:</strong> por WhatsApp o directamente con nosotros en el local.</p>
+    <p><strong>📌 Reservaciones:</strong> mínimo con 1 día de anticipación. Para pedidos grandes, al menos con 3 días.</p>
+
+    <p><strong>💵 Precios:</strong> pueden variar según disponibilidad y cambios del proveedor.</p>
+    <p><strong>🎁 En proceso:</strong> combos y promociones que pronto estarán disponibles.</p>
+
+    <p>✨ Lo que nos hace únicos no es solo el sabor, sino la forma: atención cálida, platillos con alma y un ritmo tranquilo que te hace sentir en confianza. Aquí no servimos comida rápida, servimos comida hecha con corazón.</p>
+  </div>
+
+  <footer>
+    © 2025 Cena y Algo Más. Todos los derechos reservados.
+  </footer>
+
+</body>
+<script>
+  if (window.matchMedia('(min-width: 768px)').matches) {
+    document.addEventListener('wheel', function(e) {
+      if (e.ctrlKey) e.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && (e.key === '-' || e.key === '+' || e.key === '=')) {
+        e.preventDefault();
+      }
+    });
+  }
+</script>
+
+</html>
