@@ -4,9 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cena Nena - Contacto</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --negro: #000;
+      --blanco: #fff;
+      --rosa: #ff007f;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -16,30 +22,173 @@
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #1a1a1a 0%, #2c0b0e 100%);
-      color: #fff;
-      line-height: 1.6;
+      color: var(--blanco);
+      overflow-x: hidden;
+      padding-top: 80px;
       min-height: 100vh;
-      padding: 20px;
+      line-height: 1.6;
+    }
+
+    /* BARRA DE NAVEGACIÓN CORREGIDA */
+    .navbar {
+      background-color: var(--blanco);
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: 80px;
+    }
+
+    .logo {
+      flex: 0 0 auto;
+    }
+
+    .logo img {
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    /* Contenedor principal para enlaces - CORREGIDO */
+    .nav-links-container {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      margin: 0 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex: 1;
+      max-width: 800px;
+      justify-content: space-around;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--negro);
+      font-weight: 600;
+      padding: 8px 12px;
+      text-align: center;
+      flex: 1;
+      min-width: max-content;
+      font-size: 1rem;
+      border-radius: 30px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: var(--negro);
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    /* Mobile Navbar - CORREGIDO */
+    @media (max-width: 992px) {
+      .nav-links {
+        gap: 15px;
+      }
+      
+      .nav-links a {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 80px;
+      }
+      
+      .navbar {
+        padding: 15px;
+      }
+      
+      .hamburger {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 25px;
+      }
+
+      /* ELIMINADO EL DISPLAY NONE QUE CAUSABA EL PROBLEMA */
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        flex-direction: column;
+        background: var(--blanco);
+        width: 280px;
+        padding: 20px;
+        transition: right 0.4s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        border-radius: 0 0 0 15px;
+        max-width: none;
+        justify-content: flex-start;
+        gap: 10px;
+        z-index: 1000;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links a {
+        padding: 12px 15px;
+        text-align: left;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        margin-bottom: 5px;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+
+    /* ESTILOS DE CONTENIDO */
+    .contact-content {
+      padding: 30px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
     header {
       text-align: center;
-      margin-bottom: 40px;
-      animation: fadeIn 1s ease;
+      margin: 30px 0 50px;
+      padding: 0 20px;
     }
 
     header h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 700;
       background: linear-gradient(45deg, #ff69b4, #d94f30);
       -webkit-background-clip: text;
@@ -65,15 +214,18 @@
     header p {
       font-size: 1.2rem;
       max-width: 600px;
-      margin: 20px auto;
+      margin: 25px auto 0;
       color: #e0e0e0;
+      line-height: 1.8;
     }
 
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
+      width: 100%;
+      max-width: 1000px;
     }
 
     .contact-card {
@@ -81,14 +233,14 @@
       border-radius: 15px;
       padding: 30px;
       text-align: center;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     .contact-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-10px) scale(1.02);
       background: rgba(255, 255, 255, 0.08);
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     }
@@ -106,7 +258,7 @@
     }
 
     .contact-card h3 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       margin-bottom: 15px;
       color: #ff69b4;
     }
@@ -114,73 +266,28 @@
     .contact-info {
       font-size: 1.1rem;
       color: #e0e0e0;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      line-height: 1.7;
     }
 
     .contact-link {
       display: inline-block;
       background: linear-gradient(90deg, #ff69b4, #d94f30);
       color: white;
-      padding: 12px 25px;
-      border-radius: 50px;
+      padding: 12px 30px;
+      border-radius: 30px;
       text-decoration: none;
       font-weight: 600;
-      transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
     }
 
-    .contact-link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
-    }
-
-    .footer-nav {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      padding: 30px;
-      text-align: center;
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .footer-nav h2 {
-      font-size: 1.8rem;
-      margin-bottom: 25px;
-      color: #ff69b4;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .nav-link {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      padding: 12px 25px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .nav-link:hover {
-      background: linear-gradient(90deg, #ff69b4, #d94f30);
-      transform: translateY(-3px);
-    }
-
     footer {
-      margin-top: 50px;
+      margin-top: 60px;
       text-align: center;
       color: #aaa;
       font-size: 0.9rem;
-      padding: 20px;
+      padding: 25px;
+      background: rgba(0, 0, 0, 0.7);
     }
 
     /* Animaciones */
@@ -193,24 +300,23 @@
     .contact-card:nth-child(2) { animation: fadeIn 0.5s ease 0.4s forwards; opacity: 0; }
     .contact-card:nth-child(3) { animation: fadeIn 0.5s ease 0.6s forwards; opacity: 0; }
     .contact-card:nth-child(4) { animation: fadeIn 0.5s ease 0.8s forwards; opacity: 0; }
-    .footer-nav { animation: fadeIn 1s ease 1s forwards; opacity: 0; }
 
     /* Responsive */
     @media (max-width: 768px) {
       header h1 {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
       }
       
       header p {
-        font-size: 1rem;
+        font-size: 1.05rem;
       }
       
       .contact-grid {
-        gap: 20px;
+        gap: 25px;
       }
       
       .contact-card {
-        padding: 20px;
+        padding: 25px;
       }
       
       .icon-container {
@@ -220,7 +326,7 @@
       }
       
       .contact-card h3 {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
       }
       
       .contact-info {
@@ -228,42 +334,48 @@
       }
       
       .contact-link {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-      }
-      
-      .footer-nav {
-        padding: 20px;
-      }
-      
-      .footer-nav h2 {
-        font-size: 1.5rem;
-      }
-      
-      .nav-links {
-        gap: 10px;
-      }
-      
-      .nav-link {
-        padding: 10px 15px;
-        font-size: 0.9rem;
+        padding: 10px 25px;
       }
     }
 
     @media (max-width: 480px) {
-      .nav-links {
-        flex-direction: column;
-        align-items: center;
+      header h1 {
+        font-size: 2rem;
       }
       
-      .nav-link {
-        width: 80%;
+      .nav-links {
+        width: 100%;
+        border-radius: 0;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <!-- Barra de navegación corregida -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="imagenes/logo.jpg" alt="Logo Cena Nena">
+    </div>
+    
+    <!-- Contenedor de enlaces de navegación -->
+    <div class="nav-links-container">
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Inicio</a>
+        <a href="menu.html">Menú</a>
+        <a href="quienessomos.html">Quiénes Somos</a>
+        <a href="nuestroservicio.html">Servicios</a>
+        <a href="contactos.html">Contacto</a>
+      </div>
+    </div>
+    
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <div class="contact-content">
     <header>
       <h1>Contacto</h1>
       <p>¿Alguna pregunta o ayuda? No dudes en contactarnos. Estamos aquí para ayudarte.</p>
@@ -275,7 +387,7 @@
           <i class="fab fa-facebook-f"></i>
         </div>
         <h3>Facebook</h3>
-        <p class="contact-info">Visita nuestra página de Facebook</p>
+        <p class="contact-info">Visita nuestra página de Facebook para ver nuestras últimas promociones y eventos</p>
         <a href="https://www.facebook.com/profile.php?id=7791228113" class="contact-link" target="_blank">
           Visitar Facebook
         </a>
@@ -286,7 +398,7 @@
           <i class="fab fa-tiktok"></i>
         </div>
         <h3>TikTok</h3>
-        <p class="contact-info">Síguenos en TikTok</p>
+        <p class="contact-info">Síguenos en TikTok para ver videos divertidos de nuestros platillos y preparación</p>
         <a href="https://www.tiktok.com/@cena_nena" class="contact-link" target="_blank">
           Visitar TikTok
         </a>
@@ -297,7 +409,7 @@
           <i class="fab fa-whatsapp"></i>
         </div>
         <h3>WhatsApp</h3>
-        <p class="contact-info">Contáctanos directamente por WhatsApp</p>
+        <p class="contact-info">Contáctanos directamente por WhatsApp para hacer pedidos o resolver dudas</p>
         <a href="https://wa.me/524442629126" class="contact-link" target="_blank">
           +52 444 262 9126
         </a>
@@ -308,38 +420,41 @@
           <i class="fab fa-instagram"></i>
         </div>
         <h3>Instagram</h3>
-        <p class="contact-info">Síguenos en Instagram</p>
+        <p class="contact-info">Síguenos en Instagram para ver fotos de nuestros deliciosos platillos y eventos especiales</p>
         <a href="https://www.instagram.com/cena_nena" class="contact-link" target="_blank">
           Visitar Instagram
         </a>
       </div>
     </div>
-
-    <div class="footer-nav">
-      <h2>Navegación Rápida</h2>
-      <div class="nav-links">
-        <a href="index.html" class="nav-link">Inicio</a>
-        <a href="menu.html" class="nav-link">Menú</a>
-        <a href="quienessomos.html" class="nav-link">Quiénes Somos</a>
-        <a href="nuestroservicio.html" class="nav-link">Servicios</a>
-        <a href="contactos.html" class="nav-link">Contacto</a>
-      </div>
-    </div>
-
-    <footer>
-      <p>© 2025 Cena Nena. Todos los derechos reservados.</p>
-    </footer>
   </div>
 
+  <footer>
+    <p>© 2025 Cena Nena. Todos los derechos reservados.</p>
+    <p style="margin-top: 10px; font-size: 0.8rem;">San Luis Potosí, México</p>
+  </footer>
+
   <script>
-    // Efecto de desplazamiento suave
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          // Alternar clase 'active' para el menú hamburguesa
+          hamburger.classList.toggle('active');
+          
+          // Alternar clase 'active' para mostrar/ocultar el menú
+          navLinks.classList.toggle('active');
         });
-      });
+        
+        // Cerrar el menú al hacer clic en un enlace (para móviles)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+          });
+        });
+      }
     });
   </script>
 </body>
