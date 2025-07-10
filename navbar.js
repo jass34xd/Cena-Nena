@@ -10,7 +10,7 @@ document.getElementById("navbar").innerHTML = `
     </div>
     <div class="nav-links" id="nav-links">
       <a href="index.html">Inicio</a>
-      <a href="Menu.html">Menú</a>
+      <a href="menu.html">Menú</a>
       <a href="quienessomos.html">Quiénes somos</a>
       <a href="nuestroservicio.html">Servicios</a>
       <a href="contactos.html">Contacto</a>
