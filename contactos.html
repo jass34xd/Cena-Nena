@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="estilos.css">
     <style>
+      body {
+        color: var(--negro);
+      }
     nav {
       background-color: #fff;
       padding: 15px;
@@ -34,7 +37,7 @@
         text-align: center;
         font-size: 2.5em;
         margin-top: 40px;
-        color: #d94f30;
+        color: #d930cb;
     }
     .hr {
       width: 80px;
@@ -64,12 +67,22 @@
 </head>
 <body>
   <!-- Menú de navegación -->
-  <nav>
-    <img src="imagenes/alita.png" alt="logo" width="60" height="60">
-    <a href="index.html">Inicio</a>
-    <a href="quienessomos.html">Quienes somos</a>
-    <a href="Nuestroservicio.html">Nuestros servicios</a>
-    <a href="contactos.html">Contacto</a>
+   <nav class="navbar">
+    <div class="logo">
+      <img src="imagenes/logo.jpg" alt="Logo">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="Menu.html">Menú</a>
+      <a href="quienessomos.html">Quiénes Somos</a>
+      <a href="nuestroservicio.html">Servicios</a>
+      <a href="contactos.html">Contacto</a>
+    </div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>    
   <h1 class="Contacto">
       Contacto
@@ -78,16 +91,21 @@
 <div class="ff1">
   <p class="p">Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos. Estamos aquí para ayudarte.</p>
 
-  <p class="p">📧 Email: <a href="mailto:cenaalgomas@gmail.com">cenaalgomas@gmail.com</a></p>
+  <p class="p">📢 Facebook: <a href="https://www.facebook.com/profile.php?id=61577791228113&locale=es_LA">https://www.facebook.com/profile.php?id=61577791228113&locale=es_LA</a></p>
 
-  <p class="p">📞 Teléfono: <a href="tel:+52988888888">+52988888888</a></p>
+  <p class="p">📱 Tik Tok: <a href="https://www.tiktok.com/@cena_nena?is_from_webapp=1&sender_device=pc">https://www.tiktok.com/@cena_nena?is_from_webapp=1&sender_device=pc</a></p>
 
-  <p class="p">📩 WhatsApp: <a href="https://wa.me/555555555">+555555555</a></p>
+  <p class="p">📩 WhatsApp: <a href="https://wa.me/+52 4442629126">+52 444 262 9126</a></p>
+
+  <p class="p">📸 Instagram: <a href="https://www.instagram.com/cena_nena/?utm_source=ig_web_button_share_sheet">https://www.instagram.com/cena_nena/?utm_source=ig_web_button_share_sheet</a></p>
+
+  
   </div>
   <footer class="footer">
-    © 2025 Cena y Algo Más. Todos los derechos reservados.
+    © 2025 Cena Nena. Todos los derechos reservados.
   </footer>
 </body>
+<script src="navbar.js"></script>
 <script>
   if (window.matchMedia('(min-width: 768px)').matches) {
     document.addEventListener('wheel', function(e) {

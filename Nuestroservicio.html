@@ -19,13 +19,13 @@
       text-align: center;
       font-size: 2.5em;
       margin-top: 40px;
-      color: #d94f30;
+      color: #d930d9;
     }
 
     hr {
       width: 80px;
       height: 4px;
-      background-color: #d94f30;
+      background-color: #d9309e;
       border: none;
       margin: 10px auto 30px;
       border-radius: 3px;
@@ -55,7 +55,7 @@
     }
 
     li::marker {
-      color: #d94f30;
+      color: #d930c8;
     }
 
     footer {
@@ -101,19 +101,29 @@ footer {
 </head>
 <body>
 
-  <nav>
-    <img src="imagenes/alita.png" alt="logo" width="60" height="60" />
-    <a href="index.html">Inicio</a>
-    <a href="quienessomos.html">Quiénes somos</a>
-    <a href="Nuestroservicio.html">Nuestros servicios</a>
-    <a href="contactos.html">Contacto</a>
+   <nav class="navbar">
+    <div class="logo">
+      <img src="imagenes/logo.jpg" alt="Logo">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="Menu.html">Menú</a>
+      <a href="quienessomos.html">Quiénes Somos</a>
+      <a href="nuestroservicio.html">Servicios</a>
+      <a href="contactos.html">Contacto</a>
+    </div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>
 
   <div class="contenedor">
     <h1>Nuestros servicios</h1>
     <hr />
 
-    <p>En <strong>Cena y Algo Más</strong>, nos encanta que cada cliente se sienta como en casa. Nuestros servicios están pensados para quienes disfrutan de lo casero, lo auténtico y lo sabroso.</p>
+    <p>En <strong>Cena Nena</strong>, nos encanta que cada cliente se sienta como en casa. Nuestros servicios están pensados para quienes disfrutan de lo casero, lo auténtico y lo sabroso.</p>
 
     <ul>
       <li><strong>Comida para llevar y consumir en sitio</strong> — hamburguesas, alitas, hot dogs, waffles y más.</li>
@@ -125,7 +135,7 @@ footer {
     <p><strong>🕖 Horario:</strong> de 7:00 p.m. a 12:00 a.m.</p>
 
     <p><strong>📲 Pedidos:</strong> por WhatsApp o directamente con nosotros en el local.</p>
-    <p><strong>📌 Reservaciones:</strong> mínimo con 1 día de anticipación. Para pedidos grandes, al menos con 3 días.</p>
+    <p><strong>📌 Reservaciones:</strong> mínimo con 2 días de anticipación. Para pedidos grandes, al menos con 5 días.</p>
 
     <p><strong>💵 Precios:</strong> pueden variar según disponibilidad y cambios del proveedor.</p>
     <p><strong>🎁 En proceso:</strong> combos y promociones que pronto estarán disponibles.</p>
@@ -134,10 +144,11 @@ footer {
   </div>
 
   <footer>
-    © 2025 Cena y Algo Más. Todos los derechos reservados.
+    © 2025 Cena Nena. Todos los derechos reservados.
   </footer>
 
 </body>
+<script src="navbar.js"></script>
 <script>
   if (window.matchMedia('(min-width: 768px)').matches) {
     document.addEventListener('wheel', function(e) {

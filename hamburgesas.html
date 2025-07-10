@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hamburguesas</title>
+  <link rel="stylesheet" href="estilos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    h1 {
+      color: #ff69b4;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .item-card {
+      background: #111;
+      border-radius: 15px;
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .item-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .item-title {
+      font-size: 1.2rem;
+      margin: 0.5rem 0 0.2rem;
+      color: #fff;
+    }
+
+    .item-description {
+      font-size: 0.95rem;
+      color: #ccc;
+      margin-bottom: 0.5rem;
+    }
+
+    .item-price {
+      font-size: 0.9rem;
+      color: #ff69b4;
+      text-align: right;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hamburguesas</h1>
+
+  <div class="menu-items">
+    <div class="item-card">
+      <img src="imagenes/Hamburgesa.jpg" alt="Hamburguesa Clásica">
+      <div class="item-title">Hamburguesa de res</div>
+      <div class="item-description">Carne de res, lechuga, jitomate, cebolla, queso y jamon.</div>
+      <div class="item-price">$45</div>
+      <div class="item-description">Con papas fritas.</div>
+      <div class="item-price">$70</div>
+    </div>
+
+    <div class="item-card">
+      <img src="imagenes/doble.jpg" alt="Hamburguesa Doble">
+      <div class="item-title">Hamburguesa Doble</div>
+      <div class="item-description">Doble carne de res, queso, jamon, lechuga, cebolla, jitomate.</div>
+      <div class="item-price">$55</div>
+        <div class="item-description">Con papas fritas.</div>
+      <div class="item-price">$80</div>
+    </div>
+
+    <div class="item-card">
+      <img src="imagenes/pollo.jpg" alt="Hamburguesa de pollo">
+      <div class="item-title">Hamburguesa de pollo</div>
+      <div class="item-description">milanesa de pollo, jitomate, cebolla, queso, jamon, lechuga.</div>
+      <div class="item-price">$45</div>
+        <div class="item-description">Con papas fritas.</div>
+      <div class="item-price">$70</div>
+    </div>
+
+    <div class="item-card">
+      <img src="imagenes/hawaiana.jpg" alt="Hamburguesa hawaiana">
+      <div class="item-title">Hamburguesa hawaiana</div>
+      <div class="item-description">carne de res, piña, cebolla, queso, jamon, lechuga.</div>
+      <div class="item-price">$55</div>
+        <div class="item-description">Con papas fritas.</div>
+      <div class="item-price">$80</div>
+    </div>
+  </div>
+</body>
+</html>
