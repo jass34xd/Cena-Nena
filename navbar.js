@@ -12,7 +12,7 @@ document.getElementById("navbar").innerHTML = `
       <a href="index.html">Inicio</a>
       <a href="Menu.html">Menú</a>
       <a href="quienessomos.html">Quiénes somos</a>
-      <a href="Nuestroservicio.html">Servicios</a>
+      <a href="nuestroservicio.html">Servicios</a>
       <a href="contactos.html">Contacto</a>
     </div>
   </nav>

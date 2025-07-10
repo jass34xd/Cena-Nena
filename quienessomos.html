@@ -1,115 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quienes somos</title>
-     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <title>Cena Nena - Quiénes Somos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
     <style>
-      body {
-        color: var(--negro);
-      }
-    h1 {
-      text-align: center;
-      font-size: 2.5em;
-      margin-top: 40px;
-      color: #d93095;
-    }
-    hr {
-      width: 80px;
-      height: 3px;
-      background-color: #d437df;
-      border: none;
-      margin: 10px auto 30px;
-      border-radius: 2px;
-    }
-    .contenedor {
-      max-width: 800px;
-      margin: auto;
-      background-color: #fff;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    }
-    p {
-      line-height: 1.6;
-      font-size: 1.05em;
-      margin-bottom: 20px;
-      text-align: justify;
-    }
-    img {
-
-      max-width: 90%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    footer {
-      background-color: #000;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-  </style>
+        body {
+            color: var(--negro);
+            background-color: #f8f8f8;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-top: 40px;
+            color: #d93095;
+        }
+        hr {
+            width: 80px;
+            height: 3px;
+            background-color: #d437df;
+            border: none;
+            margin: 10px auto 30px;
+            border-radius: 2px;
+        }
+        .contenedor {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: var(--blanco);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.05em;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .equipo-img {
+            display: block;
+            max-width: 90%;
+            height: auto;
+            margin: 30px auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: var(--negro);
+            color: var(--blanco);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        .valores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .valor-card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border-left: 4px solid var(--rosa);
+        }
+        .valor-card h3 {
+            color: var(--rosa);
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-   <nav class="navbar">
-    <div class="logo">
-      <img src="imagenes/logo.jpg" alt="Logo">
+    <!-- Navbar unificado - sin duplicación -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="imagenes/logo.jpg" alt="Logo Cena Nena">
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="menu.html">Menú</a>
+            <a href="quienessomos.html">Quiénes Somos</a>
+            <a href="nuestroservicio.html">Servicios</a>
+            <a href="contactos.html">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Contenido de Quiénes Somos -->
+    <div class="contenedor">
+        <h1>¿Quiénes somos?</h1>
+        <hr />
+        
+        <p><strong>Cena Nena</strong> comenzó en agosto de 2023 con una idea clara: ofrecer comida bien hecha, con calidad y sabor real. A diferencia de muchos lugares donde todo parece artificial, aquí nos enfocamos en preparar cada platillo con dedicación y buen gusto.</p>
+        
+        <p>Somos un pequeño local ubicado en una cochera en San Luis Potosí, México, pero tenemos todo lo necesario para brindarte una experiencia deliciosa. Nuestras especialidades son las alitas y hamburguesas, los favoritos de quienes nos visitan.</p>
+        
+        <p>Nuestra misión es llevar comida casera y sabrosa a más personas, alejándonos de lo procesado y apostando por lo que de verdad sabe bien. Queremos crecer, pero sin perder lo que nos hace únicos: el sabor auténtico y el cariño por lo que hacemos.</p>
+        
+        <img src="https://images.unsplash.com/photo-1554679665-f5537f187268?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Equipo de Cena Nena" class="equipo-img">
+        
+        <h2 style="text-align: center; color: var(--rosa); margin-top: 40px;">Nuestros Valores</h2>
+        <div class="valores">
+            <div class="valor-card">
+                <h3>Calidad</h3>
+                <p>Usamos ingredientes frescos y de primera calidad en cada uno de nuestros platillos.</p>
+            </div>
+            <div class="valor-card">
+                <h3>Sabor Auténtico</h3>
+                <p>Recetas tradicionales con un toque especial que las hace únicas e inolvidables.</p>
+            </div>
+            <div class="valor-card">
+                <h3>Servicio</h3>
+                <p>Atención cálida y personalizada que hace que cada cliente se sienta como en casa.</p>
+            </div>
+        </div>
     </div>
-    <div class="nav-links">
-      <a href="index.html">Inicio</a>
-      <a href="Menu.html">Menú</a>
-      <a href="quienessomos.html">Quiénes Somos</a>
-      <a href="nuestroservicio.html">Servicios</a>
-      <a href="contactos.html">Contacto</a>
-    </div>
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
-  
 
+    <footer>
+        © 2025 Cena Nena. Todos los derechos reservados.
+    </footer>
 
-  <!-- Contenido -->
-  <div class="contenedor">
-    <h1>¿Quiénes somos?</h1>
-    <hr />
-
-    <p><strong>Cena Nena</strong> comenzo en agosto de 2023 con una idea clara: ofrecer comida bien hecha, con calidad y sabor real. A diferencia de muchos lugares donde todo parece artificial, aquí nos enfocamos en preparar cada platillo con dedicación y buen gusto.</p>
-
-    <p>Somos un pequeño local ubicado en una cochera en San Luis Potosí, México, pero tenemos todo lo necesario para brindarte una experiencia deliciosa. Nuestras especialidades son las alitas y hamburguesas, los favoritos de quienes nos visitan.</p>
-
-    <p>Nuestra misión es llevar comida casera y sabrosa a más personas, alejándonos de lo procesado y apostando por lo que de verdad sabe bien. Queremos crecer, pero sin perder lo que nos hace únicos: el sabor auténtico y el cariño por lo que hacemos.</p>
-
-    <img src="" alt="Equipo de Cena Nena" />
-  </div>
-
-  <footer>
-    © 2025 Cena Nena. Todos los derechos reservados.
-  </footer>
-
+    <!-- Script unificado para el menú hamburguesa -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('nav-links');
+            
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // Cerrar menú al hacer clic en un enlace (para móviles)
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
-<script src="navbar.js"></script>
-<script>
-  if (window.matchMedia('(min-width: 768px)').matches) {
-    document.addEventListener('wheel', function(e) {
-      if (e.ctrlKey) e.preventDefault();
-    }, { passive: false });
-
-    document.addEventListener('keydown', function(e) {
-      if ((e.ctrlKey || e.metaKey) && (e.key === '-' || e.key === '+' || e.key === '=')) {
-        e.preventDefault();
-      }
-    });
-  }
-</script>
-
-
 </html>

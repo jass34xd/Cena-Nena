@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nuestros Servicios</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cena Nena - Nuestros Servicios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilos.css">
   <style>
     body {
@@ -13,12 +12,13 @@
       background-color: #fffaf7;
       color: #333;
       margin: 0;
+      padding-top: 70px;
     }
 
     h1 {
       text-align: center;
       font-size: 2.5em;
-      margin-top: 40px;
+      margin-top: 20px;
       color: #d930d9;
     }
 
@@ -33,12 +33,11 @@
 
     .contenedor {
       max-width: 800px;
-      margin: auto;
+      margin: 20px auto;
       background-color: #fff;
       padding: 40px;
       border-radius: 15px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        flex: 1;
     }
 
     p, li {
@@ -67,55 +66,139 @@
       font-size: 0.95em;
     }
 
-    nav {
+    /* Estilos del navbar */
+    .navbar {
       background-color: #fff;
-      padding: 15px;
+      padding: 15px 30px;
       display: flex;
       align-items: center;
-      gap: 20px;
+      justify-content: space-between;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
     }
 
-    nav a {
-      text-decoration: none;
-      color: #d94f30;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    nav img {
+    .logo img {
+      height: 50px;
       border-radius: 50%;
     }
 
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
 
-footer {
-  background-color: #000;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
+    .nav-links a {
+      text-decoration: none;
+      color: #000000;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff007f;
+      text-decoration: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #d94f30;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    /* Responsive para móvil */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 70px;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background: #fff;
+        width: 100%;
+        padding: 20px;
+        transition: right 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+
+    /* Estilos de los iconos */
+    .icon-list li {
+      position: relative;
+      padding-left: 30px;
+    }
+    
+    .icon-list li::before {
+      content: "•";
+      color: #d930c8;
+      font-size: 1.5em;
+      position: absolute;
+      left: 0;
+      top: -2px;
+    }
+    
+    .service-highlight {
+      background: linear-gradient(to right, #fffaf7, #fff0f5, #fffaf7);
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 4px solid #d9309e;
+    }
   </style>
 </head>
 <body>
-
-   <nav class="navbar">
+  <!-- Navbar corregido -->
+  <nav class="navbar">
     <div class="logo">
-      <img src="imagenes/logo.jpg" alt="Logo">
+      <img src="imagenes/logo.jpg" alt="Logo Cena Nena">
     </div>
-    <div class="nav-links">
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="nav-links">
       <a href="index.html">Inicio</a>
-      <a href="Menu.html">Menú</a>
+      <a href="menu.html">Menú</a>
       <a href="quienessomos.html">Quiénes Somos</a>
       <a href="nuestroservicio.html">Servicios</a>
       <a href="contactos.html">Contacto</a>
-    </div>
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
     </div>
   </nav>
 
@@ -125,42 +208,53 @@ footer {
 
     <p>En <strong>Cena Nena</strong>, nos encanta que cada cliente se sienta como en casa. Nuestros servicios están pensados para quienes disfrutan de lo casero, lo auténtico y lo sabroso.</p>
 
-    <ul>
-      <li><strong>Comida para llevar y consumir en sitio</strong> — hamburguesas, alitas, hot dogs, waffles y más.</li>
-      <li><strong>Entregas a domicilio</strong> — solo dentro de un rango cercano para asegurar la calidad.</li>
-      <li><strong>Atención a eventos pequeños</strong> — solo en zonas cercanas, bajo reserva.</li>
-    </ul>
+    <div class="service-highlight">
+      <ul class="icon-list">
+        <li><strong>Comida para llevar y consumir en sitio</strong> — hamburguesas, alitas, hot dogs, waffles y más.</li>
+        <li><strong>Entregas a domicilio</strong> — solo dentro de un rango cercano para asegurar la calidad.</li>
+        <li><strong>Atención a eventos pequeños</strong> — solo en zonas cercanas, bajo reserva.</li>
+      </ul>
+    </div>
 
-    <p><strong>📅 Días activos:</strong> viernes, sábado y domingo.</p>
-    <p><strong>🕖 Horario:</strong> de 7:00 p.m. a 12:00 a.m.</p>
+    <div class="service-details">
+      <p><strong>📅 Días activos:</strong> viernes, sábado y domingo.</p>
+      <p><strong>🕖 Horario:</strong> de 7:00 p.m. a 12:00 a.m.</p>
+      <p><strong>📲 Pedidos:</strong> por WhatsApp o directamente con nosotros en el local.</p>
+      <p><strong>📌 Reservaciones:</strong> mínimo con 2 días de anticipación. Para pedidos grandes, al menos con 5 días.</p>
+      <p><strong>💵 Precios:</strong> pueden variar según disponibilidad y cambios del proveedor.</p>
+      <p><strong>🎁 En proceso:</strong> combos y promociones que pronto estarán disponibles.</p>
+    </div>
 
-    <p><strong>📲 Pedidos:</strong> por WhatsApp o directamente con nosotros en el local.</p>
-    <p><strong>📌 Reservaciones:</strong> mínimo con 2 días de anticipación. Para pedidos grandes, al menos con 5 días.</p>
-
-    <p><strong>💵 Precios:</strong> pueden variar según disponibilidad y cambios del proveedor.</p>
-    <p><strong>🎁 En proceso:</strong> combos y promociones que pronto estarán disponibles.</p>
-
-    <p>✨ Lo que nos hace únicos no es solo el sabor, sino la forma: atención cálida, platillos con alma y un ritmo tranquilo que te hace sentir en confianza. Aquí no servimos comida rápida, servimos comida hecha con corazón.</p>
+    <p style="font-style: italic; background-color: #fff0f5; padding: 15px; border-radius: 8px; border-left: 4px solid #ff69b4;">
+      ✨ Lo que nos hace únicos no es solo el sabor, sino la forma: atención cálida, platillos con alma y un ritmo tranquilo que te hace sentir en confianza. Aquí no servimos comida rápida, servimos comida hecha con corazón.
+    </p>
   </div>
 
   <footer>
     © 2025 Cena Nena. Todos los derechos reservados.
   </footer>
 
-</body>
-<script src="navbar.js"></script>
-<script>
-  if (window.matchMedia('(min-width: 768px)').matches) {
-    document.addEventListener('wheel', function(e) {
-      if (e.ctrlKey) e.preventDefault();
-    }, { passive: false });
-
-    document.addEventListener('keydown', function(e) {
-      if ((e.ctrlKey || e.metaKey) && (e.key === '-' || e.key === '+' || e.key === '=')) {
-        e.preventDefault();
+  <!-- Script para el menú hamburguesa -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+      
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('active');
+        });
+        
+        // Cerrar el menú al hacer clic en un enlace (para móviles)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+          });
+        });
       }
     });
-  }
-</script>
-
+  </script>
+</body>
 </html>
