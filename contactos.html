@@ -1,275 +1,344 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contactos - Cena Nena</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <style>
-        :root {
-          --negro: #000;
-          --blanco: #fff;
-          --rosa: #ff007f;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cena Nena - Contacto</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2c0b0e 100%);
+      color: #fff;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-        body {
-          font-family: 'Poppins', sans-serif;
-          background: var(--negro);
-          color: var(--blanco);
-          overflow-x: hidden;
-          min-height: 100vh;
-          display: flex;
-          flex-direction: column;
-        }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        /* NAVBAR */
-        .navbar {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 15px 30px;
-          background: var(--blanco);
-          position: sticky;
-          top: 0;
-          z-index: 1000;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeIn 1s ease;
+    }
 
-        .logo img {
-          height: 50px;
-          border-radius: 50%;
-        }
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #ff69b4, #d94f30);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
 
-        .nav-links {
-          display: flex;
-          flex: 0.9;
-          gap: 20px;
-        }
+    header h1::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #ff69b4, #d94f30);
+      border-radius: 3px;
+    }
 
-        .nav-links a {
-          flex: 0.9;
-          color: var(--negro);
-          text-decoration: none;
-          font-weight: 600;
-          transition: color 0.3s;
-        }
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 20px auto;
+      color: #e0e0e0;
+    }
 
-        .nav-links a:hover {
-          color: var(--rosa);
-        }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
 
-        .hamburger {
-          display: none;
-          flex-direction: column;
-          cursor: pointer;
-          gap: 5px;
-        }
+    .contact-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
 
-        .hamburger span {
-          width: 25px;
-          height: 3px;
-          background: var(--negro);
-          border-radius: 3px;
-          transition: 0.3s;
-        }
+    .contact-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
 
-        /* Mobile Navbar */
-        @media (max-width: 768px) {
-          .hamburger {
-            display: flex;
-          }
-          .nav-links {
-            position: absolute;
-            top: 70px;
-            right: -100%;
-            flex-direction: column;
-            background: var(--blanco);
-            width: 100%;
-            padding: 20px;
-            transition: right 0.3s ease;
-          }
+    .icon-container {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d94f30, #ff69b4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 30px;
+    }
 
-          .nav-links.active {
-            right: 0;
-          }
+    .contact-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #ff69b4;
+    }
 
-          .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-          }
+    .contact-info {
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      margin-bottom: 20px;
+    }
 
-          .hamburger.active span:nth-child(2) {
-            opacity: 0;
-          }
+    .contact-link {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff69b4, #d94f30);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    }
 
-          .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-          }
-        }
+    .contact-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+    }
 
-        /* CONTENIDO PRINCIPAL */
-        main {
-          flex: 1;
-          padding: 20px;
-        }
+    .footer-nav {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
 
-        .Contacto {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-top: 40px;
-            color: var(--rosa);
-        }
-        .hr {
-          width: 80px;
-          height: 3px;
-          background-color: var(--rosa);
-          border: none;
-          margin: 10px auto 30px;
-          border-radius: 2px;
-        }
-        .ff1 {
-          max-width: 800px;
-          margin: 0 auto 40px;
-          background-color: rgba(255, 255, 255, 0.1);
-          padding: 40px;
-          border-radius: 15px;
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .ff1 p {
-          margin-bottom: 20px;
-          line-height: 1.6;
-          font-size: 1.1rem;
-        }
-        
-        .ff1 a {
-          color: var(--rosa);
-          text-decoration: none;
-          transition: color 0.3s;
-          font-weight: 600;
-        }
-        
-        .ff1 a:hover {
-          color: #e60073;
-          text-decoration: underline;
-        }
-        
-        .social-icons {
-          display: flex;
-          justify-content: center;
-          gap: 25px;
-          margin-top: 30px;
-        }
-        
-        .social-icon {
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
-          background: var(--rosa);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: transform 0.3s, background 0.3s;
-        }
-        
-        .social-icon:hover {
-          transform: translateY(-5px);
-          background: #e60073;
-        }
-        
-        .social-icon i {
-          font-size: 28px;
-          color: white;
-        }
-        
-        footer {
-          text-align: center;
-          padding: 20px;
-          background: var(--negro);
-          color: var(--blanco);
-          font-size: 0.9rem;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    .footer-nav h2 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      color: #ff69b4;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .nav-link {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      background: linear-gradient(90deg, #ff69b4, #d94f30);
+      transform: translateY(-3px);
+    }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9rem;
+      padding: 20px;
+    }
+
+    /* Animaciones */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .contact-card:nth-child(1) { animation: fadeIn 0.5s ease 0.2s forwards; opacity: 0; }
+    .contact-card:nth-child(2) { animation: fadeIn 0.5s ease 0.4s forwards; opacity: 0; }
+    .contact-card:nth-child(3) { animation: fadeIn 0.5s ease 0.6s forwards; opacity: 0; }
+    .contact-card:nth-child(4) { animation: fadeIn 0.5s ease 0.8s forwards; opacity: 0; }
+    .footer-nav { animation: fadeIn 1s ease 1s forwards; opacity: 0; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      .contact-grid {
+        gap: 20px;
+      }
+      
+      .contact-card {
+        padding: 20px;
+      }
+      
+      .icon-container {
+        width: 70px;
+        height: 70px;
+        font-size: 25px;
+      }
+      
+      .contact-card h3 {
+        font-size: 1.3rem;
+      }
+      
+      .contact-info {
+        font-size: 1rem;
+      }
+      
+      .contact-link {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .footer-nav {
+        padding: 20px;
+      }
+      
+      .footer-nav h2 {
+        font-size: 1.5rem;
+      }
+      
+      .nav-links {
+        gap: 10px;
+      }
+      
+      .nav-link {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .nav-link {
+        width: 80%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">
-      <img src="imagenes/logo.jpg" alt="Logo Cena Nena">
-    </div>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Inicio</a>
-      <a href="menu.html">Menú</a>
-      <a href="quienessomos.html">Quiénes Somos</a>
-      <a href="nuestroservicio.html">Servicios</a>
-      <a href="contactos.html">Contacto</a>
-    </div>
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
-  
-  <main>
-    <h1 class="Contacto">Contacto</h1>
-    <hr class="hr">
-    
-    <div class="ff1">
-      <p>Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos. Estamos aquí para ayudarte.</p>
+  <div class="container">
+    <header>
+      <h1>Contacto</h1>
+      <p>¿Alguna pregunta o ayuda? No dudes en contactarnos. Estamos aquí para ayudarte.</p>
+    </header>
 
-      <p>📢 Facebook: <a href="https://www.facebook.com/profile.php?id=61577791228113&locale=es_LA">https://www.facebook.com/profile.php?id=61577791228113</a></p>
-
-      <p>📱 Tik Tok: <a href="https://www.tiktok.com/@cena_nena?is_from_webapp=1&sender_device=pc">https://www.tiktok.com/@cena_nena</a></p>
-
-      <p>📩 WhatsApp: <a href="https://wa.me/+524442629126">+52 444 262 9126</a></p>
-
-      <p>📸 Instagram: <a href="https://www.instagram.com/cena_nena/?utm_source=ig_web_button_share_sheet">https://www.instagram.com/cena_nena</a></p>
-      
-      <div class="social-icons">
-        <a href="https://www.facebook.com/profile.php?id=61577791228113&locale=es_LA" class="social-icon">
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon-container">
           <i class="fab fa-facebook-f"></i>
+        </div>
+        <h3>Facebook</h3>
+        <p class="contact-info">Visita nuestra página de Facebook</p>
+        <a href="https://www.facebook.com/profile.php?id=7791228113" class="contact-link" target="_blank">
+          Visitar Facebook
         </a>
-        <a href="https://www.tiktok.com/@cena_nena?is_from_webapp=1&sender_device=pc" class="social-icon">
+      </div>
+
+      <div class="contact-card">
+        <div class="icon-container">
           <i class="fab fa-tiktok"></i>
+        </div>
+        <h3>TikTok</h3>
+        <p class="contact-info">Síguenos en TikTok</p>
+        <a href="https://www.tiktok.com/@cena_nena" class="contact-link" target="_blank">
+          Visitar TikTok
         </a>
-        <a href="https://wa.me/+524442629126" class="social-icon">
+      </div>
+
+      <div class="contact-card">
+        <div class="icon-container">
           <i class="fab fa-whatsapp"></i>
+        </div>
+        <h3>WhatsApp</h3>
+        <p class="contact-info">Contáctanos directamente por WhatsApp</p>
+        <a href="https://wa.me/524442629126" class="contact-link" target="_blank">
+          +52 444 262 9126
         </a>
-        <a href="https://www.instagram.com/cena_nena/?utm_source=ig_web_button_share_sheet" class="social-icon">
+      </div>
+
+      <div class="contact-card">
+        <div class="icon-container">
           <i class="fab fa-instagram"></i>
+        </div>
+        <h3>Instagram</h3>
+        <p class="contact-info">Síguenos en Instagram</p>
+        <a href="https://www.instagram.com/cena_nena" class="contact-link" target="_blank">
+          Visitar Instagram
         </a>
       </div>
     </div>
-  </main>
-  
-  <footer>
-    © 2025 Cena Nena. Todos los derechos reservados.
-  </footer>
-  
+
+    <div class="footer-nav">
+      <h2>Navegación Rápida</h2>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="menu.html" class="nav-link">Menú</a>
+        <a href="quienessomos.html" class="nav-link">Quiénes Somos</a>
+        <a href="nuestroservicio.html" class="nav-link">Servicios</a>
+        <a href="contactos.html" class="nav-link">Contacto</a>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2025 Cena Nena. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+
   <script>
-    // Script para el menú hamburguesa
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
-    
-    // Cerrar el menú al hacer clic en un enlace
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
+    // Efecto de desplazamiento suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
       });
     });
   </script>
