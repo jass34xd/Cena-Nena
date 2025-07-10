@@ -72,19 +72,51 @@
       }
     }
 
-    /* Otros estilos opcionales del hero y secciones */
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
+    /* Estilos optimizados para hero en móviles */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 60vh; /* Altura reducida para móviles */
+      background: url("imagenes/fondoindex.jpg") no-repeat center center / cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        height: 40vh; /* Más reducida para móviles */
+        background-attachment: scroll; /* Eliminamos parallax en móviles */
+      }
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
     }
 
     .hero h1 {
+      position: relative;
       font-size: 3rem;
       margin-bottom: 1rem;
+      z-index: 1;
+      text-align: center;
+      padding: 0 15px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem; /* Tamaño reducido para móviles */
+      }
     }
 
     .cta-button {
+      position: relative;
       background: #ff69b4;
       color: white;
       padding: 0.75rem 2rem;
@@ -93,10 +125,18 @@
       text-decoration: none;
       font-weight: 600;
       transition: 0.3s ease;
+      z-index: 1;
     }
 
     .cta-button:hover {
       background: #e955a5;
+    }
+
+    /* Otros estilos */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
     }
 
     footer {
@@ -105,6 +145,125 @@
       text-align: center;
       padding: 1rem;
       margin-top: 3rem;
+    }
+
+    /* Estilos adicionales para carrusel */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      background: #111;
+      padding: 40px 0;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card {
+      min-width: 300px;
+      margin: 0 10px;
+      background: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid #ff69b4;
+      text-align: center;
+      scroll-snap-align: start;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #ff69b4;
+      border: none;
+      color: white;
+      font-size: 24px;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-btn {
+        display: none;
+      }
+    }
+
+    .carousel-dots {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .carousel-dots button {
+      border: none;
+      background: #555;
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    .carousel-dots button.active {
+      background: #ff69b4;
+    }
+
+    /* Noticias */
+    .noticias {
+      padding: 50px 20px;
+      background: #111;
+    }
+
+    .noticias h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #ff69b4;
+    }
+
+    .noticia {
+      background: #222;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .noticia:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
   </style>
 </head>
@@ -171,14 +330,74 @@
     © 2025 Cena Nena. Todos los derechos reservados.
   </footer>
 
-  <script src="carrusel.js"></script>
   <script>
+    // Script para el menú hamburguesa
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
 
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('active');
+    });
+    
+    // Script para el carrusel
+    document.addEventListener('DOMContentLoaded', function() {
+      const track = document.querySelector('.carousel-track');
+      const cards = document.querySelectorAll('.card');
+      const prevBtn = document.querySelector('.prev');
+      const nextBtn = document.querySelector('.next');
+      const dotsContainer = document.querySelector('.carousel-dots');
+      
+      // Crear dots para navegación
+      cards.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.addEventListener('click', () => {
+          scrollToCard(index);
+        });
+        dotsContainer.appendChild(dot);
+      });
+      
+      const dots = document.querySelectorAll('.carousel-dots button');
+      dots[0].classList.add('active');
+      
+      // Scroll a una tarjeta específica
+      function scrollToCard(index) {
+        const cardWidth = cards[0].offsetWidth + 20; // Ancho + margen
+        track.scrollTo({
+          left: index * cardWidth,
+          behavior: 'smooth'
+        });
+        updateDots(index);
+      }
+      
+      // Actualizar dots activos
+      function updateDots(activeIndex) {
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === activeIndex);
+        });
+      }
+      
+      // Botones de navegación
+      prevBtn.addEventListener('click', () => {
+        const currentScroll = track.scrollLeft;
+        const cardWidth = cards[0].offsetWidth + 20;
+        const prevIndex = Math.max(Math.floor(currentScroll / cardWidth) - 1, 0);
+        scrollToCard(prevIndex);
+      });
+      
+      nextBtn.addEventListener('click', () => {
+        const currentScroll = track.scrollLeft;
+        const cardWidth = cards[0].offsetWidth + 20;
+        const nextIndex = Math.min(Math.floor(currentScroll / cardWidth) + 1, cards.length - 1);
+        scrollToCard(nextIndex);
+      });
+      
+      // Actualizar dots al hacer scroll manual
+      track.addEventListener('scroll', () => {
+        const cardWidth = cards[0].offsetWidth + 20;
+        const currentIndex = Math.round(track.scrollLeft / cardWidth);
+        updateDots(currentIndex);
+      });
     });
   </script>
 </body>
